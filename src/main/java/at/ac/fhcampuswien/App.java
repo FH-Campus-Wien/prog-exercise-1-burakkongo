@@ -93,13 +93,13 @@ public class App {
 
         if (revenue < 0 || revenue >= 100000)
             System.out.println("Invalid Revenue");
-        else if (revenue <= 0 && revenue >= 20000) {
+        else if (revenue <= 0 || revenue < 20000) {
             System.out.println("Poor Sales Revenue");
-        } else if (revenue <= 20000 && revenue < 50000) {
+        } else if (revenue <= 20000 || revenue < 50000) {
             System.out.println("Average Sales Revenue");
-        } else if (revenue <= 50000 && revenue < 80000) {
+        } else if (revenue <= 50000 || revenue < 80000) {
             System.out.println("Good Sales Revenue");
-        } else if (revenue <= 80000 && revenue < 100000) {
+        } else if (revenue <= 80000 || revenue < 100000) {
             System.out.println("Excellent Sales Revenue");
         }
     }
@@ -124,6 +124,7 @@ public class App {
                 break;
             case 4:
                 commission_rate = 0.04;
+                break;
             default:
                 commission_rate = 0;
         }
@@ -150,19 +151,19 @@ public class App {
         System.out.print("Number: ");
         Scanner scanner = new Scanner(System.in);
         int eingabe = scanner.nextInt();
-        int var = 0;
+        int digit = 0;
         if (eingabe/100>0)
         {
-            var += (eingabe%10)*100;
-            var += (eingabe%100 - eingabe%10);
-            var += eingabe/100;
+            digit += (eingabe%10)*100;
+            digit += (eingabe%100 - eingabe%10);
+            digit += eingabe/100;
         }
         else
         {
-            var += (eingabe%10)*100;
-            var += (eingabe%100 - eingabe%10);
+            digit += (eingabe%10)*100;
+            digit += (eingabe%100 - eingabe%10);
         }
-        System.out.println(var);
+        System.out.println(digit);
     }
 
     public static void main(String[] args){
@@ -170,6 +171,7 @@ public class App {
 
         System.out.println("Task 1: Say Hello World");
         exercise1.sayHelloWorld();
+
 
         System.out.println("\nTask 2: Hello Robot");
         exercise1.helloRobot();
